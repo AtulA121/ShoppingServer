@@ -19,3 +19,5 @@ mongoose.connect("mongodb://localhost:27017/shopping",(error,db)=>{
 app.listen(3000,()=>{
     console.log("server listen on 3000...");
 });
+
+console.log("Done");
