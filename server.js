@@ -5,7 +5,7 @@ var bodyParser=require("body-parser");
 var router=require("./routing/route");
 var app=express();
 
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.json());
 app.use(router);
 

@@ -4,6 +4,7 @@ var jwt=require("jsonwebtoken");
 var router=express.Router();
 
 router.get("/get",controllers.getRequest);
+router.get("/getData",controllers.getRequestData);
 router.post("/register",controllers.registerUser);
 // router.post("/register",verifyRegister,controllers.registerUser);  //only check for middleware response hitting or not
 router.post("/login",controllers.loginUser);

@@ -91,4 +91,15 @@ module.exports={
             });
         });
     },
+    getRequestData : (req,res,next)=>{
+        databaseOperation.getSpecailEvents((error,data)=>{
+            var tempStatus=false;
+            res.status(200).send({
+                request : "/getRequestData request",
+                result : tempStatus,
+                data : data,
+                error : error
+            });
+        });
+    }
 }
