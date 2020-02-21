@@ -3,8 +3,8 @@ var cors=require("cors");
 var mongoose=require("mongoose");
 var bodyParser=require("body-parser");
 var router=require("./routing/route");
-var app=express();
 
+var app=express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(router);
