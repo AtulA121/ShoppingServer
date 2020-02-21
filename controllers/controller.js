@@ -1,5 +1,6 @@
 var databaseOperation=require("../database/databaseOperation");
 var jwt=require("jsonwebtoken");
+var constants=require("../service/constants");
 
 module.exports={
     getRequest : (req,res,next)=>{
@@ -26,7 +27,7 @@ module.exports={
                 {
                     tempStatus=true;
                     payload={subject : data._id};
-                    token=jwt.sign(payload,"atulpisal.ap@gmail.com");
+                    token=jwt.sign(payload,constants.key);
                 }
             }
             res.status(200).send({

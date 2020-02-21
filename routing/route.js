@@ -2,6 +2,7 @@ var express=require("express");
 var controllers=require("../controllers/controller");
 var jwt=require("jsonwebtoken");
 var router=express.Router();
+var constants=require("../service/constants");
 
 router.get("/get",controllers.getRequest);
 router.get("/getData",controllers.getRequestData);
@@ -13,33 +14,25 @@ router.get("/specialEvents",verifyToken,controllers.getSpecailEvents);
 
 module.exports=router;
 
-function verifyRegister(req,res,next)
-{
+function verifyRegister(req,res,next){
     console.log("------ verifyRegister... : ",req.headers);
     return res.status(401).send("unAuthorization request");
 }
 
-function verifyToken(req,res,next)
-{
-    console.log("verifyToken...",req.headers);
-    
-    if(!req.headers.authorization)
-    {
+function verifyToken(req,res,next){    
+    if(!req.headers.authorization){
         return res.status(401).send("unAuthorized request");
     }
     let token=req.headers.authorization.split(" ")[1];
     console.log("token : "+token);
     
-    if(token==="null")
-    {
+    if(token==="null"){
         return res.status(401).send("unAuthorization request");
     }
     
-    let payload=jwt.verify(token,"atulpisal.ap@gmail.com");
-    console.log("payload : ",payload);
+    let payload=jwt.verify(token,constants.key);
     
-    if(!payload)
-    {
+    if(!payload){
         return res.status(401).send("unAuthorization request");
     }
     res.userId=payload.subject;

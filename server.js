@@ -10,17 +10,14 @@ app.use(bodyParser.json());
 app.use(router);
 
 mongoose.connect("mongodb://localhost:27017/shopping",(error,db)=>{
-    if(error)
+    if(error){
         console.log("not connectd...",error);
-    else
+    }
+    else{
         console.log("connected succesfully..."+db);
+    }
 });
 
 app.listen(3000,()=>{
     console.log("server listen on 3000...");
 });
-
-console.log("hiii to master...");
-
-console.log("Done");
-
