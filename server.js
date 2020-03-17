@@ -14,7 +14,7 @@ mongoose.connect("mongodb://localhost:27017/shopping",(error,db)=>{
         console.log("not connectd...",error);
     }
     else{
-        console.log("connected succesfully..."+db);
+        console.log("connected to database..."+db);
     }
 });
 
