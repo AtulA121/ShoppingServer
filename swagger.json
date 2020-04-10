@@ -1,0 +1,66 @@
+{
+    "swagger" : "2.0",
+    "info" : {
+        "version" : "1.0.0",
+        "title" : "a121",
+        "description" : "a121",
+        "license" : {
+            "name" : "A121",
+            "url" : "http://localhost:3000"
+        }
+    },
+    "paths" : {
+        "/getData" : {
+            "get" : {
+                "tags" : [
+                    "getData"
+                ],
+                "summary" : "get a121",
+                "responses" : {
+                    "200" : {
+                        "description" : "ok",
+                        "schema" : {
+                            "$ref" : "#/definitions/cat"
+                        }
+                    }
+                }
+            }
+        },
+        "/events" : {
+            "get" : {
+                "tags" : [
+                    "getEvents"
+                ],
+                "summary" : "get a121",
+                "responses" : {
+                    "200" : {
+                        "description" : "ok",
+                        "schema" : {
+                            "$ref" : "#/definitions/cat"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions" : {
+        "id" : {
+            "properties" : {
+                "uuid" : {
+                    "type" : "string"
+                }
+            }
+        },
+        "cat" : {
+            "type" : "object",
+            "properties" : {
+                "genus" : {
+                    "type" : "string"
+                },
+                "name" : {
+                    "type" : "string"
+                }
+            }
+        }
+    }
+}
