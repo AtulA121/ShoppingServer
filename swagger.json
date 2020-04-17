@@ -43,6 +43,77 @@
             }
         }
     },
+    "/api/getRecruiterList" : {
+            "get" : {
+                "tags" : [
+                    "getRecruiterList"
+                ],
+                "summary" : "[user]",
+                "description" : "API for getRecruiterList.",
+                "parameters" : [{
+                    "name" : "Authorization",
+                    "in" : "header",
+                    "description" : "token to be passed as a header, example - {Bearer 'your token'}",
+                    "required" : true,
+                    "type" : "string",
+                    "default" : "Bearer 'your token'"
+                }],
+                "responses" : {
+                    "200" : {
+                        "description" : "it return object."
+                    }
+                }
+            }
+    },
+        "/api/checkForgotToken/{token}" : {
+            "get" : {
+                "tags" : [
+                    "Check Forgot Token"
+                ],
+                "summary" : "[user]",
+                "description" : "API for checking forgot token.",
+                "parameters" : [{
+                    "name": "token",
+                    "in": "path",
+                    "type" : "string",
+                    "required" : true,
+                    "description": "required a token."
+                }],
+                "responses" : {
+                    "200" : {
+                        "description" : "it return object."
+                    }
+                }
+            }
+        },
+        "/api/register" : {
+            "post" : {
+                "tags" : [
+                    "register user (not working.)"
+                ],
+                "summary" : "[user]",
+                "description" : "API for register user.",
+                "parameters" : [{
+                    "name": "filaname",
+                    "description": "file detail",
+                    "required": true,
+                    "type": "FormDataContentDisposition",
+                    "paramType": "body",
+                    "allowMultiple": false
+                },{
+                    "name": "body",
+                    "in": "body",
+                    "type" : "object",
+                    "required" : true,
+                    "description": "{\n'fullName' : '', \n'phoneNo' : '',\n'userRole' : '', \n'role' : '', \n'email' : '', \n'password' : '' \n}"
+                }],
+                "responses" : {
+                    "200" : {
+                        "description" : "it return object."
+                    }
+                }
+            }
+        },
     "definitions" : {
         "id" : {
             "properties" : {
